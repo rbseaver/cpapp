@@ -1,0 +1,6 @@
+@CPApp.Api_HostAddress = http://localhost:5223
+
+GET {{CPApp.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
