@@ -1,5 +1,7 @@
+import { describe, it, expect } from 'vitest';
+
 describe('when checking for proper jest functioning', () => {
-  test('1 should be 1 and pass', () => {
-    expect(1).toBe(1);
+  it('1 should be 1 and pass', () => {
+    expect(1).toEqual(1);
   });
 });
