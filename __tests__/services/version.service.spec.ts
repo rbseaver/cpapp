@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import VersionService from '../../src/services/version.service';
 import { vol } from 'memfs';
+import VersionService from '../../src/services/version.service';
 
 vi.mock('node:fs')
 vi.mock('node:fs/promises')
@@ -13,7 +13,7 @@ describe('when calling the version service', () => {
         'package.json': JSON.stringify({
           name: 'test',
           version: '1.0.0'
-        }),
+        })
       });
     });
 
@@ -21,7 +21,6 @@ describe('when calling the version service', () => {
       vi.restoreAllMocks();
       vol.reset();
     });
-
 
     it('should return the version number', async () => {
       // Arrange
