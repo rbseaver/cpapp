@@ -17,7 +17,8 @@
     "incremental": true
   },
   "exclude": [
-    "__tests__/**",
-    "jest.config.*"
+    "__mocks__/**",
+    "**/*.spec.ts",
+    "vitest.config.*"
   ]
 }

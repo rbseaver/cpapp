@@ -1,14 +1,27 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-
+import { Test, TestingModule } from '@nestjs/testing';
+import { VersionService } from './version.service';
+import { afterEach, afterAll, beforeEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { vol } from 'memfs';
-import VersionService from '../../src/services/version.service';
 
-vi.mock('node:fs')
-vi.mock('node:fs/promises')
+vi.mock('node:fs');
+vi.mock('node:fs/promises');
 
-describe('when calling the version service', () => {
+describe('VersionService', () => {
+  let service: VersionService;
+
+  beforeAll(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [VersionService],
+    }).compile();
+    service = module.get<VersionService>(VersionService);
+  });
+
+  afterAll(() => {
+    vi.clearAllMocks();
+  });
+
   describe('and all is well', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       vol.fromJSON({
         'package.json': JSON.stringify({
           name: 'test',

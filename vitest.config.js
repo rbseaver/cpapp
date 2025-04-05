@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    dir: './__tests__',
+    include: ['**/*.spec.ts'],
     coverage: {
       reporter: ['text', 'json', 'html'],
       exclude: [
@@ -14,7 +14,8 @@ export default defineConfig({
         '**/__mocks__/**',
         '**/node_modules/**',
         '**/.github/**',
-        '*.config.js'
+        '*.config.js',
+        '**/*.spec.ts'
       ],
       provider: 'v8',
       all: true
