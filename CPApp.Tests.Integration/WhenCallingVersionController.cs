@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace CPApp.Tests.Integration
 {
@@ -14,7 +13,7 @@ namespace CPApp.Tests.Integration
         public async Task ShouldRetrieveFullVersionString()
         {
             // Arrange  
-            await using var factory = new CustomWebApplicationFactory<Program>();
+            await using var factory = new IntegrationTestWebApplicationFactory<Program>();
             using var client = factory.CreateClient();
 
             // Act  
