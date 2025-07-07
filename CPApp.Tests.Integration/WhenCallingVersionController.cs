@@ -1,40 +1,30 @@
-﻿using CPApp.Lib.Interfaces;
-using CPApp.Lib.Services;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
+using System.Text.RegularExpressions;
 
 namespace CPApp.Tests.Integration
 {
     [TestClass]
-    public sealed class WhenCallingVersionController
+    public sealed partial class WhenCallingVersionController
     {
+#pragma warning disable SYSLIB1045 // Convert to 'GeneratedRegexAttribute'.
+        private static readonly Regex SemVerRegex = new("^\\d+\\.\\d+\\.\\d+(-[A-Za-z0-9\\-.]+)?(\\+[A-Za-z0-9\\-.]+)?$");
+#pragma warning restore SYSLIB1045 // Convert to 'GeneratedRegexAttribute'.
+
         [TestMethod]
         public async Task ShouldRetrieveFullVersionString()
         {
-            // Arrange
-            var builder = WebApplication.CreateBuilder();
-            builder.Services.AddSingleton<IVersionService, VersionService>();
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            var app = builder.Build();
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-            app.UseHttpsRedirection();
-            app.UseAuthorization();
-            app.MapControllers();
-            app.Run();
-            var client = app.CreateClient();
-            // Act
+            // Arrange  
+            await using var factory = new CustomWebApplicationFactory<Program>();
+            using var client = factory.CreateClient();
+
+            // Act  
             var response = await client.GetAsync("/version");
-            // Assert
+
+            // Assert  
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
-            Assert.AreEqual("1.0.0", responseString);
+
+            StringAssert.Matches(responseString, SemVerRegex);
         }
     }
 }

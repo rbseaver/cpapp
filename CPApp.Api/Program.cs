@@ -27,3 +27,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// This public partial Program class is required to make the minimal hosting model's Program accessible
+// to integration tests using WebApplicationFactory<Program>. See: https://learn.microsoft.com/aspnet/core/test/integration-tests
+public partial class Program { }
