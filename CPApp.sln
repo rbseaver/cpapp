@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPApp.Lib", "CPApp.Lib\CPAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPApp.Tests.Integration", "CPApp.Tests.Integration\CPApp.Tests.Integration.csproj", "{4DC1E5DD-E483-41CD-8D3C-B7DCB0720AD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPApp.Lib.Tests.Unit", "CPApp.Lib.Tests.Unit\CPApp.Lib.Tests.Unit.csproj", "{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C441EBD6-9C94-4CB1-B998-4314527EC571} = {C441EBD6-9C94-4CB1-B998-4314527EC571}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +40,10 @@ Global
 		{4DC1E5DD-E483-41CD-8D3C-B7DCB0720AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DC1E5DD-E483-41CD-8D3C-B7DCB0720AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DC1E5DD-E483-41CD-8D3C-B7DCB0720AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +51,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{048A81B4-92CD-40F6-8752-7F3A5E32E555} = {3DA4EA36-7BD3-4CAB-ACEE-C871A44E6FE3}
 		{4DC1E5DD-E483-41CD-8D3C-B7DCB0720AD1} = {3DA4EA36-7BD3-4CAB-ACEE-C871A44E6FE3}
+		{EC88958C-0B87-4F9D-B1DB-EA64012EDAFB} = {3DA4EA36-7BD3-4CAB-ACEE-C871A44E6FE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0717CF1-9ACE-4E33-B2C1-9E018C68CE08}
 	EndGlobalSection
 EndGlobal
