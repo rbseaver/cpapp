@@ -1,4 +1,5 @@
 ﻿using CPApp.Lib;
+using CPApp.Lib.Interfaces;
 using CPApp.Lib.Models;
 using Microsoft.AspNetCore.Mvc;
 

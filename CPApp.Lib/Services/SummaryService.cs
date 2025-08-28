@@ -1,12 +1,17 @@
-﻿using CPApp.Lib.Models;
+﻿using CPApp.Lib.Interfaces;
+using CPApp.Lib.Models;
 
 namespace CPApp.Lib.Services
 {
     public class SummaryService : ISummaryService
     {
-        public Task<SummaryReading> GetSummaryReading()
+        public async Task<SummaryReading> GetSummaryReading()
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(new SummaryReading
+            {
+                Pressure = new PressureData(),
+                Events = new EventData()
+            });
         }
     }
 }

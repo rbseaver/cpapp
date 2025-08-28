@@ -1,6 +1,6 @@
 ﻿using CPApp.Lib.Models;
 
-namespace CPApp.Lib
+namespace CPApp.Lib.Interfaces
 {
     public interface ISummaryService
     {

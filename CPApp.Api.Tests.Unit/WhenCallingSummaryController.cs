@@ -1,6 +1,8 @@
 using CPApp.Api.Controllers;
 using CPApp.Lib;
+using CPApp.Lib.Interfaces;
 using CPApp.Lib.Models;
+using FluentAssertions;
 using NSubstitute;
 
 namespace CPApp.Api.Tests.Unit;
@@ -40,6 +42,6 @@ public class WhenCallingSummaryController
         var result = await controller.Get();
 
         // Assert
-        Assert.IsNotNull(result);
+        result.Should().Satisfy<SummaryReading>(x => x.Should().Be(summaryReading));
     }
 }
